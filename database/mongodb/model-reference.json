@@ -1,0 +1,69 @@
+{
+  "descripcion": "Referencia didáctica del modelo documental. Los datos reales se generan desde MySQL con npm run db:mongo:sync.",
+  "colecciones": {
+    "libros": {
+      "relationalId": 1,
+      "isbn": "9788499890944",
+      "titulo": "1984",
+      "anioPublicacion": 1949,
+      "idioma": "Español",
+      "descripcion": "...",
+      "editorial": {
+        "idEditorial": 1,
+        "nombre": "Debolsillo",
+        "pais": "España"
+      },
+      "categoria": {
+        "idCategoria": 3,
+        "nombre": "Ciencia ficción"
+      },
+      "autores": [
+        {
+          "idAutor": 1,
+          "nombre": "George",
+          "apellido": "Orwell",
+          "nacionalidad": "Británica"
+        }
+      ],
+      "ejemplares": [
+        {
+          "idEjemplar": 1,
+          "codigoInventario": "EJ-0001",
+          "ubicacion": "Sala A · Estante 01",
+          "estado": "DISPONIBLE"
+        }
+      ]
+    },
+    "usuarios": {
+      "relationalId": 4,
+      "nombre": "David",
+      "apellido": "Aguilar",
+      "correo": "david.aguilar@biblioteca.test",
+      "estado": "ACTIVO"
+    },
+    "prestamos": {
+      "relationalId": 1,
+      "usuario": {
+        "idUsuario": 4,
+        "nombre": "David",
+        "apellido": "Aguilar"
+      },
+      "fechaPrestamo": "2026-09-28",
+      "estado": "ACTIVO",
+      "detalles": [
+        {
+          "idDetalle": 1,
+          "idEjemplar": 2,
+          "codigoInventario": "EJ-0002",
+          "libro": {
+            "idLibro": 1,
+            "titulo": "1984"
+          },
+          "fechaLimite": "2026-10-12",
+          "fechaDevolucion": null,
+          "estado": "PRESTADO"
+        }
+      ]
+    }
+  }
+}

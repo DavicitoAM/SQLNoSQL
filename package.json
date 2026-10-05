@@ -1,0 +1,19 @@
+{
+  "name": "biblioteca-sql-nosql",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c auto \"npm --workspace backend run dev\" \"npm --workspace frontend run dev\"",
+    "build": "npm --workspace backend run build && npm --workspace frontend run build",
+    "db:mysql:init": "npm --workspace backend run db:mysql:init",
+    "db:mongo:sync": "npm --workspace backend run db:mongo:sync",
+    "check": "npm --workspace backend run check && npm --workspace frontend run check"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

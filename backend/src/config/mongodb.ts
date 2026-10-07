@@ -1,5 +1,5 @@
-import { Db, MongoClient } from 'mongodb';
-import { env } from './env.js';
+import { Db, MongoClient } from "mongodb";
+import { env } from "./env.js";
 
 let client: MongoClient | null = null;
 let database: Db | null = null;
@@ -8,7 +8,7 @@ export async function getMongoDb(): Promise<Db> {
   if (database) return database;
 
   client = new MongoClient(env.mongo.uri, {
-    serverSelectionTimeoutMS: 2500
+    serverSelectionTimeoutMS: 2500,
   });
   await client.connect();
   database = client.db(env.mongo.database);
